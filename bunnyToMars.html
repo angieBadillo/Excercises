@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>bunnyToMars</title>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <style>
+        body{
+            text-align: center;
+            color: #5caafc;
+            background-image: url("mars.jpg");
+            background-size: 1500px;
+        }
+        img{
+            height: 150px;
+           width: auto;
+        }
+
+
+        #draggable {
+            width: 10px;
+            height: 10px;
+            padding: 0.5em;
+            color: transparent;
+        }
+
+        </style>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <script>
+
+            $( function() {
+                $( "#draggable" ).draggable();
+            } );
+
+        </script>
+
+        <script type = "text/javascript" >
+
+            var i = 1, sum = 0, product = 1;
+
+            while(i <= 11) {
+                    sum += i;
+                    product *= i;
+                    i = i + 2;
+            }
+
+            document.writeln("<br>The sum of the odd numbers between 1 and 11 is: " + sum +"<br>");
+            document.writeln("<br>The Product of the odd numbers from 1 to 11 inclusive is " + product + "<br>");
+        </script>
+    </head>
+<body>
+    <div id="draggable" >
+        <img src="bunnydrag.png" alt="HTML5"></a>
+
+</div>
+</body>
+</html>
