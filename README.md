@@ -16,3 +16,10 @@ Write a script using a switch statement to determine which physical tag is desir
 Then use a for loop to display "Line" (either strong, emphasize, or underlined) for the desired number of lines.
 If the user enters any character(s) except 1, 2, or 3 for the physical type or an invalid number of lines, then display "Invalid input".
 
+<b>Exercise 3b: similar to exercise 3a</b>
+
+Use jQuery to show/hide instructions and validate input data.
+
+<b>Exercise 4: using multiple For statements.</b>
+
+Write a script that displays a diamond shape of *s: You may use output statements that print a single asterisk (*), a single space or a single newline character. Maximize your use of repetition (with nested for statements), and minimize the number.
