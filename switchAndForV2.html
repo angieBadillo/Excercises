@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Line styles V2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- jquery validation of input -->
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
+
+
+    <style>
+        body{
+            align-items: center;
+            width: 580px;
+            margin: 0px auto;
+        }
+
+        #flip {
+            padding: 5px;
+            text-align: center;
+            background-color: rgba(254, 254, 254, 0.95);
+            border: inset 3px #5cadff;
+
+        }
+
+        #panel{
+            padding: 5px;
+            text-align: left;
+            background-color: rgba(254, 254, 254, 0.95);
+            border: outset 3px #d1d1d1;
+            display: none;
+
+        }
+
+    </style>
+    <script>
+
+        //display panel function
+        $(document).ready(function(){
+            $("#flip").click(function(){
+                $("#panel").slideToggle("slow");
+            });
+        });
+
+        $(document).ready(function(){
+            $("#myform").validate({
+                rules:
+                    {
+                        input: { required: true, number: true, min: 1, max: 3},
+                        lines: { required: true, number: true, min: 1, max: 10}
+                    }
+            });
+        });
+
+function process(){
+
+        if ($("#myform").valid()) {
+
+            var choice, numlines, startTag, endTag, physType;
+
+            //get input from user
+
+            choice = document.getElementById("input").value;
+            numlines = document.getElementById("lines").value;
+
+                switch (choice) {
+                    case "1":
+                        startTag = "<strong>";
+                        endTag = "</strong>";
+                        physType = "<h2>Strong</h2>";
+                        break;
+
+                    case "2":
+                        startTag = "<em>";
+                        endTag = "</em>";
+                        physType = "<h2>Emphasize</h2>";
+                        break;
+                    case "3":
+                        startTag = "<u>";
+                        endTag = "</u>";
+                        physType = "<h2>Underlined</h2>";
+                        break;
+                }
+
+                var output = "";
+
+                    output += ( physType + startTag );
+
+                    for (var i = 1 ; i <= numlines; ++i)
+                    {
+                        output += (startTag + "<p>" + "Line: " + i + endTag + "</p>");
+                    }
+
+                }
+
+                document.getElementById("listOut").innerHTML = output;
+        }
+    </script>
+</head>
+<body onload="document.getElementById('input').focus();" >
+
+<section class="body">
+
+    <h2 align="center">** For and Switch** </h2>
+
+    <br><br>
+    <br><br>
+
+    <div id="flip">Display the instruction</div>
+    <div id="panel">Enter a physical tag type: 1 for strong, 2 for emphasize, 3 for underlined. Then enter 1 to 10 lines to write.</div>
+
+
+    <br><br>
+    <br><br>
+
+    <form name="myform" id = "myform">
+
+        <p>Select a physical tag type: </p>
+        <input type="text" id="input" name="input" size="4"><br><br>
+
+        <p>Select 1 to 10 lines to write: </p>
+
+        <input type="text" id="lines" name="lines" size="4"><br><br>
+
+
+        <input type="button" class="btn btn-primary" onclick="process()" value="SUBMIT">
+
+
+        <input type="reset" class="btn btn-primary" value="RESET" onClick="window.location.reload();"><br><br>
+
+    </form>
+
+
+    <div id ="listOut"></div>
+
+</section>
+
+</body>
+</html>
+
+
