@@ -15,11 +15,19 @@ Use a while statement to calculate the product and the sum of the odd integers f
 Write a script using a switch statement to determine which physical tag is desired; namely either "Strong", "emphasize", or "underline". Use form input to obtain the physical type (1 for strong, 2 for emphasize, 3 for underlined) from the user and the desired number of lines (1-10).
 Then use a for loop to display "Line" (either strong, emphasize, or underlined) for the desired number of lines.
 If the user enters any character(s) except 1, 2, or 3 for the physical type or an invalid number of lines, then display "Invalid input".
+(switchAndFor.html)
 
 <b>Exercise 3b: similar to exercise 3a</b>
 
 Use jQuery to show/hide instructions and validate input data.
+(switchAndForV2.html)
 
 <b>Exercise 4: using multiple For statements.</b>
 
 Write a script that displays a diamond shape of *s: You may use output statements that print a single asterisk (*), a single space or a single newline character. Maximize your use of repetition (with nested for statements), and minimize the number.
+(aster.html)
+
+<b>Exercise 5: Looping through input fields.</b>
+
+Create a webpage that contains a script that will determine the gross pay for each of four employees. You are given a list of the employees of the company, the monthly gross and the bonus of each employee. Your script should input this information for each employee, determine the employee's gross pay and then display the employee's gross pay. You should also check for valid input and right-justify all amounts.
+(grossPay.html)
