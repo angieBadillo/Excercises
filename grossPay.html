@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
+
+
+    <title>Gross Pay</title>
+
+    <script>
+
+        $(document).ready(function(){
+            $("#myform").validate({
+                rules:
+                    {
+                        gross1: { required: true, number: true},
+                        gross2: { required: true, number: true},
+                        gross3: { required: true, number: true},
+                        gross4: { required: true, number: true},
+
+                        bonus1: { required: true, number: true},
+                        bonus2: { required: true, number: true},
+                        bonus3: { required: true, number: true},
+                        bonus4: { required: true, number: true},
+                    }
+            });
+        });
+
+
+        function process() {
+
+            if ($("#myForm").valid()) {
+
+                var payBonus, payGross, totalPay;
+
+                for (var i = 1; i <= 4; i++) {
+
+                    payGross = parseFloat(document.getElementById("gross" + i).value);
+                    payBonus = parseFloat(document.getElementById("bonus" + i).value);
+                    totalPay = payBonus + payGross;
+
+                    document.getElementById("printGross" + i).value = payGross.toFixed(2);
+                    document.getElementById("printBonus" + i).value = payBonus.toFixed(2);
+                    document.getElementById("printTotal" + i).value = totalPay.toFixed(2);
+                }
+            }
+        }
+    </script>
+    <style>
+
+        input {text-align: right;}
+
+        table {width: 580px;}
+
+        body {
+            margin:50px 0px; padding:0px;
+            text-align:center;
+        }
+
+        .body {
+            width:800px;
+            margin: 0px auto;
+            text-align:left;
+            padding:10px;
+        }
+
+        th {text-align: center;}
+
+    </style>
+</head>
+
+<body>
+
+<section class="body">
+
+    <h1>Employers Payment Form</h1>
+    <br>
+    <br>
+
+    <form id="myForm" name="myForm">
+
+        <table>
+            <tr>
+                <th>Employee</th>
+                <th>Monthly Gross</th>
+                <th>Bonus</th>
+            </tr>
+            <tr>
+                <td><label for="gross1">Employee 1</label></td>
+                <td><input type="text" name="gross1" id="gross1"></td>
+                <td><label for="bonus1"></label>
+                    <input type="text" id="bonus1" name="bonus1"></td></tr>
+            <tr>
+                <td><label for="gross2">Employee B</label></td>
+                <td><input type="text" name="gross2" id="gross2"></td>
+                <td><label for="bonus2"></label>
+                    <input type="text" name="bonus2" id="bonus2"></td>
+            </tr>
+            <tr>
+                <td><label for="gross3">Employee C</label></td>
+                <td><input type="text" name="gross3" id="gross3"></td>
+                <td><label for="bonus3"></label>
+                    <input type="text" name="bonus3" id="bonus3"></td>
+            </tr>
+            <tr>
+                <td><label for="gross4">Employee D</label></td>
+                <td><input type="text" name="gross4" id="gross4"></td>
+                <td><label for="bonus4"></label>
+                    <input type="text" name="bonus4" id="bonus4"></td>
+            </tr>
+        </table>
+
+            <br><br>
+
+            <input type="button" class="btn btn-primary" onclick="process()" value="SUBMIT">
+            <input type="reset" class="btn btn-primary" value="RESET" onClick="window.location.reload();">
+            <br><br>
+            <br><br>
+
+
+
+            <table>
+                <tr>
+                    <th>Employee</th>
+                    <th>Monthly Gross</th>
+                    <th>Bonus</th>
+                    <th>Total Payment</th>
+                </tr>
+                <tr>
+                    <td>Employee A</td>
+                    <td><input type="text" id="printGross1" disabled></td>
+                    <td><input type="text" id="printBonus1" disabled></td>
+                    <td><input type="text" id="printTotal1" disabled></td>
+                </tr>
+                <tr>
+                    <td>Employee B</td>
+                    <td><input type="text" id="printGross2" disabled></td>
+                    <td><input type="text" id="printBonus2" disabled></td>
+                    <td><input type="text" id="printTotal2" disabled></td>
+                </tr>
+                <tr>
+                    <td>Employee C</td>
+                    <td><input type="text" id="printGross3" disabled></td>
+                    <td><input type="text" id="printBonus3" disabled></td>
+                    <td><input type="text" id="printTotal3" disabled></td>
+                </tr>
+                <tr>
+                    <td>Employee D</td>
+                    <td><input type="text" id="printGross4" disabled></td>
+                    <td><input type="text" id="printBonus4" disabled></td>
+                    <td><input type="text" id="printTotal4" disabled></td>
+                </tr>
+            </table>
+        </form>
+    </section>
+</body>
+</html>
+
+
+
