@@ -1,5 +1,5 @@
-# Excercises
-Learning JavaScript
+# JavaScript Examples
+
 
 <b>Exercise 1: using the For statement:</b>
 
